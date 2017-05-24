@@ -11,11 +11,16 @@ namespace Zoo.Time
 {
     class ZooTimer
     {
-        public const int frequency = 5000;
+        public const int frequency = 2000;
 
         private IAnimalRepository _rep = AnimalRepository.Instance;
 
         private Timer _timer;
+
+        public bool IsEnd()
+        {
+            return _timer == null;
+        }
 
         public void Start()
         {
@@ -43,9 +48,8 @@ namespace Zoo.Time
                     if (IsAllDead())
                     {
                         _timer.Dispose();
+                        _timer = null;
                         Console.WriteLine("all animals are dead");
-                        Console.ReadLine();
-                        Environment.Exit(0);
                     }
                 }
             }

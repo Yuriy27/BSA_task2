@@ -20,7 +20,6 @@ namespace Zoo
             + "feed [name]\n"
             + "heal [name]\n"
             + "delete [name]\n"
-            + "info [name]\n"
             + "exit\n"
             + "clr\n"
             + "------------------------";
@@ -38,7 +37,14 @@ namespace Zoo
                 var handler = new CommandHandler(input, zoo);
                 var command = new UserCommand(handler);
                 var invoker = new Invoker(command);
-                invoker.Run();
+                if (!timer.IsEnd())
+                {
+                    invoker.Run();
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }
