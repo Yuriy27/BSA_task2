@@ -11,7 +11,7 @@ namespace Zoo.Time
 {
     class ZooTimer
     {
-        public const int frequency = 2000;
+        public const int frequency = 5000;
 
         private IAnimalRepository _rep = AnimalRepository.Instance;
 
