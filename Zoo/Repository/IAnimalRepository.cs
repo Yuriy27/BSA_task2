@@ -31,9 +31,9 @@ namespace Zoo.Repository
 
         IEnumerable<Animal> FindIllTigers();
 
-        IEnumerable<Animal> FindElephantByName(string name);
+        Animal FindElephantByName(string name);
 
-        IEnumerable<Animal> FindNamesOfHungryAnimals();
+        IEnumerable<string> FindNamesOfHungryAnimals();
 
         IEnumerable<Animal> FindTheMostHealthyAnimals();
 
@@ -47,7 +47,7 @@ namespace Zoo.Repository
 
         IEnumerable<Animal> FindMinMaxHealthAnimals();
 
-        int AverageHealth();
+        double AverageHealth();
 
     }
 }

@@ -71,27 +71,27 @@ namespace Zoo.Repository
 
         public IEnumerable<Animal> FindAllGroupByType(string type)
         {
-            throw new NotImplementedException();
+            return null;//FindAll().GroupBy(x => x.GetType(), x => x);
         }
 
         public IEnumerable<Animal> FindAllByState(AnimalState state)
         {
-            throw new NotImplementedException();
+            return FindAll().Where(x => x.State == state);
         }
 
         public IEnumerable<Animal> FindIllTigers()
         {
-            throw new NotImplementedException();
+            return FindAll().Where(t => t.GetType().Equals("tiger") && t.State == AnimalState.Ill);
         }
 
-        public IEnumerable<Animal> FindElephantByName(string name)
+        public Animal FindElephantByName(string name)
         {
-            throw new NotImplementedException();
+            return FindAll().Where(e => e.GetType().Equals("elephant") && e.Name.Equals(name)).Single();
         }
 
-        public IEnumerable<Animal> FindNamesOfHungryAnimals()
+        public IEnumerable<string> FindNamesOfHungryAnimals()
         {
-            throw new NotImplementedException();
+            return FindAll().Where(x => x.State == AnimalState.Hungry).Select(x => x.Name);
         }
 
         public IEnumerable<Animal> FindTheMostHealthyAnimals()
@@ -106,7 +106,7 @@ namespace Zoo.Repository
 
         public IEnumerable<Animal> FindWolfsAndBears()
         {
-            throw new NotImplementedException();
+            return FindAll().Where(x => (x.GetType().Equals("wolf") || x.GetType().Equals("bear")) && x.Health > 3);
         }
 
         public IEnumerable<Animal> FindMinMaxHealthAnimals()
@@ -114,9 +114,9 @@ namespace Zoo.Repository
             throw new NotImplementedException();
         }
 
-        public int AverageHealth()
+        public double AverageHealth()
         {
-            throw new NotImplementedException();
+            return FindAll().Average(x => x.Health);
         }
     }
 }
