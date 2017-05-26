@@ -22,5 +22,32 @@ namespace Zoo.Repository
         Animal GetRandom();
 
         Animal Remove(string name);
+
+        //linq
+
+        IEnumerable<Animal> FindAllGroupByType(string type);
+
+        IEnumerable<Animal> FindAllByState(AnimalState state);
+
+        IEnumerable<Animal> FindIllTigers();
+
+        IEnumerable<Animal> FindElephantByName(string name);
+
+        IEnumerable<Animal> FindNamesOfHungryAnimals();
+
+        IEnumerable<Animal> FindTheMostHealthyAnimals();
+
+        IEnumerable<Animal> FindCountOfDeadAnimals();
+
+        /// <summary>
+        /// Find wolfs and bears with health more than 3
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<Animal> FindWolfsAndBears();
+
+        IEnumerable<Animal> FindMinMaxHealthAnimals();
+
+        int AverageHealth();
+
     }
 }

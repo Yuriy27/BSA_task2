@@ -13,6 +13,11 @@ namespace Zoo.Animals
             return 6;
         }
 
+        public override string GetType()
+        {
+            return "bear";
+        }
+
         public Bear(string name) : base(name)
         {
         }

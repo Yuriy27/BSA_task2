@@ -26,5 +26,7 @@ namespace Zoo.Animals
         }
 
         public abstract int GetMaxHealth();
+
+        public abstract string GetType();
     }
 }
