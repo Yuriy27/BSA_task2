@@ -66,5 +66,57 @@ namespace Zoo.Repository
             _animals.TryRemove(name, out value);
             return value;
         }
+
+        //linq
+
+        public IEnumerable<Animal> FindAllGroupByType(string type)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Animal> FindAllByState(AnimalState state)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Animal> FindIllTigers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Animal> FindElephantByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Animal> FindNamesOfHungryAnimals()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Animal> FindTheMostHealthyAnimals()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Animal> FindCountOfDeadAnimals()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Animal> FindWolfsAndBears()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Animal> FindMinMaxHealthAnimals()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AverageHealth()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
