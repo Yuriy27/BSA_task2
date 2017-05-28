@@ -113,7 +113,7 @@ namespace Zoo.Repository
         {
             var all = FindAll();
             var maxmin = all.Where(x => x.Health == all.Min(t => t.Health) || x.Health == all.Max(t => t.Health))
-                .OrderBy(x => x.Health);
+            .OrderBy(x => x.Health);
             return (maxmin.First(), maxmin.Last());
         }
 
