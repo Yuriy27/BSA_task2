@@ -15,7 +15,16 @@ namespace Zoo.Command
 
         public void Handle(string[] tokens)
         {
-            int num = Convert.ToInt32(tokens[1]);
+            int num;
+            try
+            {
+                num = Convert.ToInt32(tokens[1]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("second param should be a number");
+                return;
+            }
             switch (num)
             {
                 case 0: ShowAllGroupByType(); break;//
