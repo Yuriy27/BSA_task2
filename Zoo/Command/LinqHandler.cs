@@ -27,16 +27,16 @@ namespace Zoo.Command
             }
             switch (num)
             {
-                case 0: ShowAllGroupByType(); break;//
-                case 1: ShowAllByState(tokens); break;//
-                case 2: ShowIllTigers(); break;//
-                case 3: ShowElephantByName(tokens); break;//
-                case 4: ShowNamesOfHungryAnimals(); break;//
-                case 5: ShowTheMostHealthyAnimals(); break;//
-                case 6: ShowCountOfDeadAnimals(); break;//
-                case 7: ShowWolfsAndBears(); break;//
-                case 8: ShowMinMaxHealthAnimals(); break;//
-                case 9: ShowAverageHealth(); break;//
+                case 0: ShowAllGroupByType(); break;
+                case 1: ShowAllByState(tokens); break;
+                case 2: ShowIllTigers(); break;
+                case 3: ShowElephantByName(tokens); break;
+                case 4: ShowNamesOfHungryAnimals(); break;
+                case 5: ShowTheMostHealthyAnimals(); break;
+                case 6: ShowCountOfDeadAnimals(); break;
+                case 7: ShowWolfsAndBears(); break;
+                case 8: ShowMinMaxHealthAnimals(); break;
+                case 9: ShowAverageHealth(); break;
             }
         }
 
