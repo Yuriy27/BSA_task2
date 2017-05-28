@@ -39,6 +39,7 @@ namespace Zoo.Command
                     case "delete": DeleteAnimal(tokens); break;
                     case "info": ShowInfo(tokens); break;
                     case "all": ShowAll(tokens); break;
+                    case "linq_help": ShowLinqHelp(); break;
                     case "linq": ShowLinq(tokens); break;
                     default: throw new CommandNotFoundException();
                 }
@@ -67,6 +68,23 @@ namespace Zoo.Command
             {
                 Console.WriteLine("animal named '{0}' not found", tokens[1]);
             }
+        }
+
+        private void ShowLinqHelp()
+        {
+            var linqHelp = "linq [number]\n"
+                + "0 - show all animals grouped by type\n"
+                + "1 - show animals by state\n"
+                + "2 - show ill tigers\n"
+                + "3 - show elephant by name\n"
+                + "4 - show names of hungry animals\n"
+                + "5 - show the most health animals (1 per type)\n"
+                + "6 - show count of dead animals per type\n"
+                + "7 - show wolfes and bears with health > 3\n"
+                + "8 - show animal with min and max health\n"
+                + "9 - show average animals health\n";
+
+            Console.Write(linqHelp);
         }
 
         private void ShowLinq(string[] tokens)

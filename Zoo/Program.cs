@@ -21,6 +21,7 @@ namespace Zoo
             + "heal [name]\n"
             + "delete [name]\n"
             + "info [name]\n"
+            + "linq_help\n"
             + "all\n"
             + "exit\n"
             + "clr\n"
