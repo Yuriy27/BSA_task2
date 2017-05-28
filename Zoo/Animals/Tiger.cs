@@ -13,7 +13,7 @@ namespace Zoo.Animals
             return 4;
         }
 
-        public override string GetType()
+        public override string GetAnimalType()
         {
             return "tiger";
         }

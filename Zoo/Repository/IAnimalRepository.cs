@@ -25,9 +25,9 @@ namespace Zoo.Repository
 
         //linq
 
-        IEnumerable<Animal> FindAllGroupByType(string type);
+        IEnumerable<IGrouping<string, Animal>> FindAllGroupByType();
 
-        IEnumerable<Animal> FindAllByState(AnimalState state);
+        IEnumerable<Animal> FindAllByState(string state);
 
         IEnumerable<Animal> FindIllTigers();
 
@@ -37,15 +37,11 @@ namespace Zoo.Repository
 
         IEnumerable<Animal> FindTheMostHealthyAnimals();
 
-        IEnumerable<Animal> FindCountOfDeadAnimals();
+        IEnumerable<(string, int)> FindCountOfDeadAnimals();
 
-        /// <summary>
-        /// Find wolfs and bears with health more than 3
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<Animal> FindWolfsAndBears();
+        IEnumerable<Animal> FindWolfsAndBears(int health);
 
-        IEnumerable<Animal> FindMinMaxHealthAnimals();
+        (Animal, Animal) FindMinMaxHealthAnimals();
 
         double AverageHealth();
 

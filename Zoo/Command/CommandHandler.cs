@@ -37,6 +37,9 @@ namespace Zoo.Command
                     case "feed": FeedAnimal(tokens); break;
                     case "heal": HealAnimal(tokens); break;
                     case "delete": DeleteAnimal(tokens); break;
+                    case "info": ShowInfo(tokens); break;
+                    case "all": ShowAll(tokens); break;
+                    case "linq": ShowLinq(tokens); break;
                     default: throw new CommandNotFoundException();
                 }
             }
@@ -64,6 +67,41 @@ namespace Zoo.Command
             {
                 Console.WriteLine("animal named '{0}' not found", tokens[1]);
             }
+        }
+
+        private void ShowLinq(string[] tokens)
+        {
+            if (tokens.Length < 2)
+            {
+                throw new BadParametersException();
+            }
+            try
+            {
+                new LinqHandler().Handle(tokens);
+            }
+            catch (BadParametersException e)
+            {
+                throw;
+            }
+        }
+
+        private void ShowAll(string[] tokens)
+        {
+            foreach (var animal in _zoo.FindAll())
+            {
+                Console.WriteLine(animal);
+            }
+        }
+
+        private void ShowInfo(string[] tokens)
+        {
+            if (tokens.Length != 2)
+            {
+                throw new BadParametersException();
+            }
+            if (!_zoo.Exist(tokens[1]))
+                throw new AnimalNotFoundException();
+            Console.WriteLine(_zoo.Find(tokens[1]));
         }
 
         private void Exit()

@@ -19,5 +19,10 @@ namespace Zoo.Service
         void Delete(string name);
 
         bool Exist(string name);
+
+        Animal Find(string name);
+
+        IEnumerable<Animal> FindAll();
+
     }
 }

@@ -54,5 +54,16 @@ namespace Zoo.Service
         {
             return _rep.Exist(name);
         }
+
+        public Animal Find(string name)
+        {
+            return _rep.Find(name);
+        }
+
+        public IEnumerable<Animal> FindAll()
+        {
+            return _rep.FindAll();
+        }
+
     }
 }

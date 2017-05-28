@@ -27,6 +27,16 @@ namespace Zoo.Animals
 
         public abstract int GetMaxHealth();
 
-        public abstract string GetType();
+        public abstract string GetAnimalType();
+
+        public override string ToString()
+        {
+            return "-----------\n"
+                + $"Name: {Name}\n"
+                + $"Health: {Health}\n"
+                + $"State: {State.ToString()}\n"
+                + $"Type: {GetAnimalType()}\n"
+                + "-----------";
+        }
     }
 }

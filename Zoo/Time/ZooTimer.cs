@@ -38,7 +38,7 @@ namespace Zoo.Time
                 {
                     randomAnimal.State++;
                 }
-                else if (randomAnimal.State == AnimalState.Ill && randomAnimal.Health-- == 0)
+                else if (randomAnimal.State == AnimalState.Ill && --randomAnimal.Health == 0)
                 {
                     randomAnimal.State = AnimalState.Dead;
                 }

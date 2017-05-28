@@ -20,6 +20,8 @@ namespace Zoo
             + "feed [name]\n"
             + "heal [name]\n"
             + "delete [name]\n"
+            + "info [name]\n"
+            + "all\n"
             + "exit\n"
             + "clr\n"
             + "------------------------";

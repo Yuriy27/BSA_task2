@@ -69,24 +69,24 @@ namespace Zoo.Repository
 
         //linq
 
-        public IEnumerable<Animal> FindAllGroupByType(string type)
+        public IEnumerable<IGrouping<string, Animal>> FindAllGroupByType()
         {
-            return null;//FindAll().GroupBy(x => x.GetType(), x => x);
+            return FindAll().GroupBy(x => x.GetAnimalType(), x => x);
         }
 
-        public IEnumerable<Animal> FindAllByState(AnimalState state)
+        public IEnumerable<Animal> FindAllByState(string state)
         {
-            return FindAll().Where(x => x.State == state);
+            return FindAll().Where(x => x.State.ToString().ToLower() == state);
         }
 
         public IEnumerable<Animal> FindIllTigers()
         {
-            return FindAll().Where(t => t.GetType().Equals("tiger") && t.State == AnimalState.Ill);
+            return FindAll().Where(t => t.GetAnimalType().Equals("tiger") && t.State == AnimalState.Ill);
         }
 
         public Animal FindElephantByName(string name)
         {
-            return FindAll().Where(e => e.GetType().Equals("elephant") && e.Name.Equals(name)).Single();
+            return FindAll().Where(e => e.GetAnimalType().Equals("elephant") && e.Name.Equals(name)).SingleOrDefault();
         }
 
         public IEnumerable<string> FindNamesOfHungryAnimals()
@@ -96,22 +96,25 @@ namespace Zoo.Repository
 
         public IEnumerable<Animal> FindTheMostHealthyAnimals()
         {
-            throw new NotImplementedException();
+            return FindAll().GroupBy(g => g.GetAnimalType()).Select(a => a.First(x => x.Health == x.GetMaxHealth()));
         }
 
-        public IEnumerable<Animal> FindCountOfDeadAnimals()
+        public IEnumerable<(string, int)> FindCountOfDeadAnimals()
         {
-            throw new NotImplementedException();
+            return FindAll().GroupBy(g => g.GetAnimalType()).Select(a => (a.Key, a.Where(x => x.State == AnimalState.Dead).Count()));
         }
 
-        public IEnumerable<Animal> FindWolfsAndBears()
+        public IEnumerable<Animal> FindWolfsAndBears(int health)
         {
-            return FindAll().Where(x => (x.GetType().Equals("wolf") || x.GetType().Equals("bear")) && x.Health > 3);
+            return FindAll().Where(x => (x.GetAnimalType().Equals("wolf") || x.GetAnimalType().Equals("bear")) && x.Health > health);
         }
 
-        public IEnumerable<Animal> FindMinMaxHealthAnimals()
+        public (Animal, Animal) FindMinMaxHealthAnimals()
         {
-            throw new NotImplementedException();
+            var all = FindAll();
+            var maxmin = all.Where(x => x.Health == all.Min(t => t.Health) || x.Health == all.Max(t => t.Health))
+                .OrderBy(x => x.Health);
+            return (maxmin.First(), maxmin.Last());
         }
 
         public double AverageHealth()
